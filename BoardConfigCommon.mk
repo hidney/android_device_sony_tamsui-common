@@ -1,3 +1,20 @@
+# Copyright (C) 2011-2013 The CyanogenMod Project
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# WARNING: This line must come *before* including the proprietary
+# variant, so that it gets overwritten by the parent (which goes
+# against the traditional rules of inheritance).
 USE_CAMERA_STUB := true
 
 TARGET_SPECIFIC_HEADER_PATH := device/sony/tamsui-common/include
@@ -9,16 +26,18 @@ BOARD_HAS_NO_MISC_PARTITION := true
 # Init
 BOARD_WANTS_EMMC_BOOT := true
 
-# Caf
+# Display
 TARGET_QCOM_DISPLAY_VARIANT := legacy
-TARGET_QCOM_AUDIO_VARIANT := caf
+
+# Media
 TARGET_QCOM_MEDIA_VARIANT := caf
 
 # Audio
+TARGET_QCOM_AUDIO_VARIANT := caf
+BOARD_USES_LEGACY_ALSA_AUDIO := true
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_QCOM_AUDIO_RESETALL := true
 BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
-BOARD_HAVE_BACK_MIC_CAMCORDER := true
 
 # Platform
 TARGET_BOOTLOADER_BOARD_NAME := tamsui
@@ -58,6 +77,7 @@ TARGET_USES_GENLOCK := true
 TARGET_QCOM_HDMI_OUT := false
 TARGET_USES_ION := true
 TARGET_NO_HW_VSYNC := true
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 BOARD_EGL_CFG := device/sony/tamsui-common/config/egl.cfg
 BOARD_USE_MHEAP_SCREENSHOT := true
